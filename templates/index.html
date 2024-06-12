@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile Evaluation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <h1>Profile Evaluation For University Acceptance</h1>
+
+    <form id="inputForm" method="post" action="/predict">
+        <label for="greScore">GRE Score:</label>
+        <input type="text" id="greScore" name="greScore" placeholder="(out of 340)" required><br><br>
+        
+        <label for="toeflScore">TOEFL Score:</label>
+        <input type="text" id="toeflScore" name="toeflScore" placeholder="(out of 120)" required><br><br>
+        
+        <label for="universityRating">University Rating:</label>
+        <input type="text" id="universityRating" name="universityRating" placeholder="(out of 5)" required><br><br>
+        
+        <label for="sop">SOP Strength:</label>
+        <input type="text" id="sop" name="sop" placeholder="(out of 5)" required><br><br>
+        
+        <label for="lor">LOR Strength:</label>
+        <input type="text" id="lor" name="lor" placeholder="(out of 5)" required><br><br>
+        
+        <label for="cgpa">CGPA:</label>
+        <input type="text" id="cgpa" name="cgpa" placeholder="(out of 10)" required><br><br>
+        
+        <label for="research">Research Experience:</label>
+        <select id="research" name="research" required>
+            <option value="0">0 (No)</option>
+            <option value="1">1 (Yes)</option>
+        </select><br><br>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+        <p>{{ prediction }}</p>
+    {% endif %}
+
+    <footer>
+        <p>&#169; Suneath Hossain</p>
+    </footer>
+    
+</body>
+</html>
