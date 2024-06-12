@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template
 import pickle
 import numpy as np
-model = pickle.load(open(r"D:\deploy_model\uni_admission.pkl", 'rb'))
+model = pickle.load(open(r"uni_admission.pkl", 'rb'))
 app = Flask(__name__)
 @app.route('/')
 def index():
