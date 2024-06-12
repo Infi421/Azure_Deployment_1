@@ -34,6 +34,8 @@ def predict_admission():
         prediction = model.predict(np.array([[GRE, TOEFL, Rating, SOP, LOR, CGPA, Research]]))*100
         if prediction[0]>100:
             prediction[0]=100
+        if prediction[0]<100:
+            prediction[0]=0
         output = "{:.2f}%".format(prediction[0]) 
     return render_template('index.html', prediction='The chance of admission is {}'.format(output))
 if __name__ == '__main__':
